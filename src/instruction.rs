@@ -1,6 +1,14 @@
 #[derive(Debug, PartialEq)]
 pub enum Opcode {
+    LOAD,
+    ADD,
+    SUB,
+    MUL,
+    DIV,
     HLT,
+    JMP,
+    JMPF,
+    JMPB,
     IGL,
 }
 
@@ -20,7 +28,15 @@ impl Instruction {
 impl From<u8> for Opcode {
     fn from(value: u8) -> Self {
         match value {
-            0 => Opcode::HLT,
+            0 => Opcode::LOAD,
+            1 => Opcode::ADD,
+            2 => Opcode::SUB,
+            3 => Opcode::MUL,
+            4 => Opcode::DIV,
+            5 => Opcode::HLT,
+            6 => Opcode::JMP,
+            7 => Opcode::JMPF,
+            8 => Opcode::JMPB,
             _ => Opcode::IGL,
         }
     }
