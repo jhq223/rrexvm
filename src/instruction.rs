@@ -17,6 +17,15 @@ impl Instruction {
     }
 }
 
+impl From<u8> for Opcode {
+    fn from(value: u8) -> Self {
+        match value {
+            0 => Opcode::HLT,
+            _ => Opcode::IGL,
+        }
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
